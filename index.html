@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Sprint — интерактивный курс по JavaScript</title>
+  <meta name="description" content="Современный адаптивный сайт для изучения JavaScript: теория, практика, roadmap и прогресс до раздела Браузер: документ, события, интерфейсы." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">
+        <span class="brand-mark">JS</span>
+        <div>
+          <strong>JS Sprint</strong>
+          <small>Теория + практика + прогресс</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Открыть меню" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="mainNav">
+        <a href="#roadmap">Программа</a>
+        <a href="#modules">Модули</a>
+        <a href="#practice">Практика</a>
+        <a href="#plan">План</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Оригинальный учебный сайт</span>
+          <h1>Выучи JavaScript уверенно — от базы до <span>DOM, событий и интерфейсов</span></h1>
+          <p class="hero-text">
+            Это готовый адаптивный сайт-курс с современной подачей: roadmap, темы по порядку,
+            мини-конспекты, практические задания, чеклист и отслеживание прогресса.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#roadmap">Начать обучение</a>
+            <a class="btn btn-secondary" href="#practice">Открыть практику</a>
+          </div>
+          <div class="hero-points">
+            <span>HTML + CSS + JS</span>
+            <span>Адаптация под телефон</span>
+            <span>Сохранение прогресса</span>
+          </div>
+        </div>
+
+        <aside class="hero-card glass">
+          <div class="stat-row">
+            <div>
+              <strong id="completedCount">0</strong>
+              <span>пройдено</span>
+            </div>
+            <div>
+              <strong id="totalCount">0</strong>
+              <span>всего тем</span>
+            </div>
+            <div>
+              <strong id="progressValue">0%</strong>
+              <span>прогресс</span>
+            </div>
+          </div>
+          <div class="progress-bar" aria-hidden="true">
+            <div id="progressBar"></div>
+          </div>
+          <div class="hero-list" id="nextTopics"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Roadmap</span>
+          <h2>Программа курса до раздела «Браузер: документ, события, интерфейсы»</h2>
+          <p>Маршрут построен так, чтобы ты не просто читал теорию, а сразу закреплял её практикой.</p>
+        </div>
+        <div class="roadmap-grid" id="roadmapGrid"></div>
+      </div>
+    </section>
+
+    <section class="section muted" id="modules">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Подробно</span>
+          <h2>Модули и темы</h2>
+          <p>У каждого модуля есть цель, краткий конспект и фокус для практики.</p>
+        </div>
+        <div class="accordion" id="moduleAccordion"></div>
+      </div>
+    </section>
+
+    <section class="section" id="practice">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Hands-on</span>
+          <h2>Практика и мини-задания</h2>
+          <p>Сначала решай устно, потом кодом. После этого сверяйся с подсказкой.</p>
+        </div>
+
+        <div class="practice-layout">
+          <div class="practice-list" id="practiceList"></div>
+          <div class="practice-view glass">
+            <div class="practice-badge" id="taskLevel">Уровень</div>
+            <h3 id="taskTitle">Выбери задание</h3>
+            <p id="taskDesc">Нажми на карточку слева, чтобы открыть упражнение.</p>
+
+            <div class="task-block">
+              <h4>Что нужно сделать</h4>
+              <ul id="taskSteps"></ul>
+            </div>
+
+            <div class="task-block">
+              <h4>Подсказка</h4>
+              <p id="taskHint">Подсказка появится здесь.</p>
+            </div>
+
+            <div class="task-block">
+              <h4>Проверь себя</h4>
+              <p id="taskCheck">Критерии проверки появятся здесь.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted" id="plan">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Пошагово</span>
+          <h2>План обучения на 8 недель</h2>
+          <p>Реалистичный график для уверенного прохождения всей программы.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-card glass"><h3>1 неделя</h3><p>Знакомство с JS, переменные, типы данных, операторы, условия.</p></article>
+          <article class="plan-card glass"><h3>2 неделя</h3><p>Циклы, функции, область видимости, основы отладки и чтения ошибок.</p></article>
+          <article class="plan-card glass"><h3>3 неделя</h3><p>Объекты, массивы, методы, строки, числа и практика на маленьких задачах.</p></article>
+          <article class="plan-card glass"><h3>4 неделя</h3><p>Продвинутые функции: callback, замыкания, стрелочные функции, this.</p></article>
+          <article class="plan-card glass"><h3>5 неделя</h3><p>ООП в JS, прототипы, классы, наследование, обработка ошибок.</p></article>
+          <article class="plan-card glass"><h3>6 неделя</h3><p>Асинхронность: промисы, async/await, работа с сетью и JSON.</p></article>
+          <article class="plan-card glass"><h3>7 неделя</h3><p>DOM: поиск элементов, изменение документа, стили, атрибуты, классы.</p></article>
+          <article class="plan-card glass"><h3>8 неделя</h3><p>События, формы, всплытие, делегирование, основы интерфейсов браузера.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-grid">
+        <div>
+          <span class="eyebrow">FAQ</span>
+          <h2>Как учиться по этому сайту</h2>
+        </div>
+        <div class="faq-items">
+          <details class="glass" open>
+            <summary>С чего начать?</summary>
+            <p>Иди сверху вниз по roadmap. Не перепрыгивай темы. После каждой темы делай минимум 2–3 задачи.</p>
+          </details>
+          <details class="glass">
+            <summary>Сколько практики нужно?</summary>
+            <p>На каждую теоретическую тему — хотя бы 30–60 минут практики. Лучше меньше теории, но больше решения задач.</p>
+          </details>
+          <details class="glass">
+            <summary>Когда переходить к DOM?</summary>
+            <p>Когда уверенно понимаешь функции, объекты, массивы, замыкания, this и основы асинхронности.</p>
+          </details>
+          <details class="glass">
+            <summary>Как понять, что тема усвоена?</summary>
+            <p>Ты можешь объяснить её своими словами, решить 3 задачи подряд без подсказки и применить в маленьком проекте.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>JS Sprint</strong>
+        <p>Оригинальный учебный сайт для системного изучения JavaScript.</p>
+      </div>
+      <button class="btn btn-secondary" id="resetProgress">Сбросить прогресс</button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
